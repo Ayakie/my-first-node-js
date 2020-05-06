@@ -10,5 +10,15 @@ function todo(task) {
     tasks.push({name: task, state:false})
 }
 
+/**
+ * TODO一覧の配列を取得する
+ * @return {Array}
+ */
+function list() {
+    return tasks
+      .filter(task => !task.state)
+      .map(t => t.name);
+  }  
+
 // todoという関数をパッケージの関数として外部に公開する
-module.exports = {todo};
+module.exports = {todo, list};
