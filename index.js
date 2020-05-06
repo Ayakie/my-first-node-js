@@ -20,13 +20,20 @@ function isDone(taskAndIsDonePair) {
 }
 
 /**
+ * タスクと完了したかどうかが含まれるオブジェクトを受け取り，完了していないかを返す
+ * @param {object} taskAndIsDonePair
+ * @returns {boolean} 完了していないかどうか 
+ */
+function isNotDone(taskAndIsDonePair) {
+    return !isDone(taskAndIsDonePair)
+}
+
+/**
  * TODO一覧の配列を取得する
  * @return {Array}
  */
 function list() {
-    return tasks
-      .filter(task => !isDone(task))
-      .map(t => t.name);
+    return tasks.filter(isNotDone).map(t => t.name);
   }  
 
 // todoという関数をパッケージの関数として外部に公開する
