@@ -11,12 +11,21 @@ function todo(task) {
 }
 
 /**
+ * タスクと完了したかどうかが含まれるオブジェクトを受け取り，完了したかを返す
+ * @param {object} taskAndIsDonePair
+ * @return {boolean} 完了したかどうか
+ */
+function isDone(taskAndIsDonePair) {
+    return taskAndIsDonePair.state;
+}
+
+/**
  * TODO一覧の配列を取得する
  * @return {Array}
  */
 function list() {
     return tasks
-      .filter(task => !task.state)
+      .filter(task => !isDone(task))
       .map(t => t.name);
   }  
 
