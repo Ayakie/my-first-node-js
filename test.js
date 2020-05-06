@@ -11,4 +11,9 @@ assert.deepEqual(todo.list(), ['クリーニング屋に服を取りに行く', 
 todo.done('クリーニング屋に服を取りに行く');
 console.log(todo.donelist());
 
+// delもテスト
+todo.del('クリーニング屋に服を取りに行く');
+todo.del('ディナーのお店を調べる');
+assert.deepEqual(todo.list(), []);
+
 console.log('テストは正常に完了しました');
