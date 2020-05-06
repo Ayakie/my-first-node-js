@@ -36,5 +36,25 @@ function list() {
     return tasks.filter(isNotDone).map(t => t.name);
   }  
 
+
+/**
+ * TODOを完了状態にする
+ * @param {string} task
+ */
+function done(task) {
+    const index = tasks.findIndex(t => t.name == task);
+    if (index != -1) {
+        tasks[index].state = true;
+    }
+}
+
+/**
+ * 完了済みのタスク一覧の配列を取得する
+ * @return {Array}
+ */
+function donelist() {
+    return tasks.filter(isDone).map(t => t.name)
+}
+
 // todoという関数をパッケージの関数として外部に公開する
-module.exports = {todo, list};
+module.exports = {todo, list, done, donelist};
